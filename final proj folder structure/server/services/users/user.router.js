@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getAllUsers, getUserById, createNewUser, updateUser, deleteUser } from './user.contoller.js';
+import { getAllUsers, getUserById, createNewUser, updateUser, deleteUser, loginUser } from './user.contoller.js';
 //import * as ctrl from './user.contoller.js';
 
 function logger (req, res, next) {
@@ -15,6 +15,7 @@ userRouter
   .get('/', logger, getAllUsers)
   .get('/profile/:id', getUserById)
   .post('/', createNewUser)
+  .post('/login', loginUser)
   .put('/:id', updateUser)
   .delete('/:id', deleteUser)
 

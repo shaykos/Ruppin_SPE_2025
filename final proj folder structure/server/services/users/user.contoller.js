@@ -44,6 +44,20 @@ export async function createNewUser(req, res) {
 
 }
 
+export async function loginUser(req, res) {
+  let { email, password } = req.body;
+
+  if (!email || !password)
+    return res.status(400).json({ message: "empty credentials" });
+
+  let user = await User.login(email, password);
+
+  if (!user)
+    return res.status(400).json({ message: "invalid credentials" });
+
+  return res.status(200).json({ message: "Login!", user });
+}
+
 export async function updateUser(req, res) {
   let u = new User().update();
   res.send('updateUser');

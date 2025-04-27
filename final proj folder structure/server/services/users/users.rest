@@ -18,5 +18,13 @@ content-type: application/json
 }
 
 ###
-### some note here
 PUT {{host}}/users/profile/1A2B3C4D5E6F
+
+### login user
+POST {{host}}/users/login
+content-type: application/json 
+
+{
+    "email":"itzak.kdoshim@gmail.com",
+    "password":"111111"
+}

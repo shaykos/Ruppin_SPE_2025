@@ -24,3 +24,10 @@ export async function addUserToDB(user) {
 
   return user;
 }
+
+export async function findUserByEmail(email) {
+  let users = await readFile(path.join(__dirname, 'DB', 'users.json'));
+  users = JSON.parse(users.toString());
+  let user = users.find(u => u.email == email);
+  return user;
+}
