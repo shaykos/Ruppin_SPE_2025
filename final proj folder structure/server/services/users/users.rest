@@ -28,3 +28,29 @@ content-type: application/json
     "email":"itzak.kdoshim@gmail.com",
     "password":"111111"
 }
+
+### create admin 
+POST {{host}}/users
+content-type: application/json
+
+{
+    "id": "123456",
+    "name": "amos",
+    "age": 37,
+    "email": "admin@domain.com",
+    "password": "admin123",
+    "role":"admin"
+}
+
+### login admin
+POST {{host}}/users/login
+content-type: application/json 
+
+{
+    "email":"admin@domain.com",
+    "password":"admin123"
+}
+
+### delete user
+DELETE {{host}}/users/123456789014
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1NiIsIm5hbWUiOiJhbW9zIiwiYWdlIjozNywiZW1haWwiOiJhZG1pbkBkb21haW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ1NzM4OTg3LCJleHAiOjE3NDU3NDI1ODd9.MpaSX7eJl6TnzzYPBsbibTHEZIhTFZn99jqgRJIlqf8

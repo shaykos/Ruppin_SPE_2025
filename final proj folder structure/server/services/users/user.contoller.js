@@ -30,7 +30,7 @@ export async function getUserById(req, res) {
 }
 
 export async function createNewUser(req, res) {
-  let { id, name, age, email, password } = req.body;
+  let { id, name, age, email, password, role } = req.body;
 
   if (!id || !name || !age || !email || !password)
     return res.status(400).json({ message: "missing data" });
@@ -38,9 +38,9 @@ export async function createNewUser(req, res) {
   if (password.length < 6)
     return res.status(400).json({ message: "weak password" });
 
-  let user = new User(id, name, age, email, password);
-  await user.addUser();
-  return res.status(201).json({ message: "successfully added", user })
+  let user = new User(id, name, age, email, password, role);
+  let token = await user.addUser();
+  return res.status(201).json({ message: "successfully added", token })
 
 }
 
@@ -50,12 +50,12 @@ export async function loginUser(req, res) {
   if (!email || !password)
     return res.status(400).json({ message: "empty credentials" });
 
-  let user = await User.login(email, password);
+  let token = await User.login(email, password);
 
-  if (!user)
+  if (!token)
     return res.status(400).json({ message: "invalid credentials" });
 
-  return res.status(200).json({ message: "Login!", user });
+  return res.status(200).json({ message: "Login!", token });
 }
 
 export async function updateUser(req, res) {

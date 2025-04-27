@@ -1,12 +1,12 @@
 import { Router } from 'express';
 import { getAllUsers, getUserById, createNewUser, updateUser, deleteUser, loginUser } from './user.contoller.js';
-//import * as ctrl from './user.contoller.js';
+import { auth } from '../../middlewares/auth.js';
 
-function logger (req, res, next) {
+function logger(req, res, next) {
   console.log(`${req.method} ${req.url}`);
   next();
- };
- 
+};
+
 
 const userRouter = Router();
 
@@ -17,6 +17,6 @@ userRouter
   .post('/', createNewUser)
   .post('/login', loginUser)
   .put('/:id', updateUser)
-  .delete('/:id', deleteUser)
+  .delete('/:id', auth, deleteUser)
 
 export default userRouter;

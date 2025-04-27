@@ -1,10 +1,1 @@
-[
-  {
-    "id": "123456789014",
-    "name": "itzak kdoshim",
-    "age": 17,
-    "email": "itzak.kdoshim@gmail.com",
-    "password": "$2b$15$O0HbDCIP/abvQwWOhtRu5eH9oYy4rf7VVnhbvnecUpUFOo/ncVpza",
-    "role":"user"
-  }
-]
+[{"id":"123456789014","name":"itzak kdoshim","age":17,"email":"itzak.kdoshim@gmail.com","password":"$2b$15$O0HbDCIP/abvQwWOhtRu5eH9oYy4rf7VVnhbvnecUpUFOo/ncVpza","role":"user"},{"id":"123456","name":"amos","age":37,"email":"admin@domain.com","password":"$2b$15$9LlG21xspkJoYix1oZkP4.jq1wayL2L1s6FF2Wc14bic5mBC8zTJO","role":"admin"},{"id":"123456789014","name":"itzak kdoshim","age":17,"email":"itzak.kdoshim@gmail.com","password":"$2b$15$JayE7qucOwN6pbXLKEDPrepfqDeAbtezzpHEU2aMzl3rISpavX/9u","role":"user"}]
