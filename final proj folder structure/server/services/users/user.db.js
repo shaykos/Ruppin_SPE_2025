@@ -31,3 +31,17 @@ export async function findUserByEmail(email) {
   let user = users.find(u => u.email == email);
   return user;
 }
+
+export async function updateUserProfileImage(id, asset_id, secure_url) {
+  let users = await readFile(path.join(__dirname, 'DB', 'users.json'));
+  users = JSON.parse(users.toString());
+  let user;
+  users.forEach(u => {
+    if(u.id == id){
+      u.profileImage = { asset_id, secure_url }
+      user = u;
+    }
+  });
+  await writeFile(path.join(__dirname, 'DB', 'users.json'), JSON.stringify(users));
+  return user;
+}

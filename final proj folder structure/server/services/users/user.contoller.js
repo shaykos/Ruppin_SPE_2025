@@ -63,6 +63,17 @@ export async function updateUser(req, res) {
   res.send('updateUser');
 }
 
+export async function updateProfileImage(req, res) {
+  let { id } = req.params;
+  let { asset_id, secure_url } = req.cloudinary;
+
+  if (!User.findUser(id))
+    return res.status(400).json({ message: "user not foud" });
+
+  let updatedUser = await User.updateProfileImage(id, asset_id, secure_url);
+  return res.status(200).json({ message: "updated successfuly", updatedUser });
+}
+
 export async function deleteUser(req, res) {
   res.send('deleteUser');
 }

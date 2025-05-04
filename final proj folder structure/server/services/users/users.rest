@@ -54,3 +54,13 @@ content-type: application/json
 ### delete user
 DELETE {{host}}/users/123456789014
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1NiIsIm5hbWUiOiJhbW9zIiwiYWdlIjozNywiZW1haWwiOiJhZG1pbkBkb21haW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ1NzM4OTg3LCJleHAiOjE3NDU3NDI1ODd9.MpaSX7eJl6TnzzYPBsbibTHEZIhTFZn99jqgRJIlqf8
+
+
+### yupdate profile image 
+PUT {{host}}/users/123456789014/profile_image
+content-type: application/json 
+
+{
+    "asset_id":"111",
+    "secure_url":"1111"
+}

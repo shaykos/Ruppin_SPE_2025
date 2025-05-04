@@ -1,8 +1,9 @@
 //import express
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
-import {errorHandler} from './middlewares/errorHandler.js';
+import { errorHandler } from './middlewares/errorHandler.js';
 import v1Router from './routes/v1.js';
 
 //set server port
@@ -16,7 +17,7 @@ server.use(cors());
 server.use(morgan("tiny"));
 
 //add json and form support
-server.use(express.json());
+server.use(express.json({ limit: '50mb' }));
 server.use(express.urlencoded({ extended: true }));
 
 //create v1 router
