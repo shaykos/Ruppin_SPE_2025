@@ -1,0 +1,40 @@
+GET http://localhost:5500/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODBhMDEyMjFmNzA3ZDUxMWI4NDBjYWEiLCJyb2xlIjoidXNlciIsIm5hbWUiOiJNb3NlcyIsImVtYWlsIjoibW9zZXNAZ29kLmlsIiwiaWF0IjoxNzQ1NDg2OTQ1LCJleHAiOjE3NDU0OTA1NDV9.YoR2Vl17255LvoFYPl9PIeO7wCwiMJudD_3QX5q0WvM
+
+###
+
+GET http://localhost:5500/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA5ZjlhNDNkYzU0ZTYyOTFjN2Q1Y2QiLCJyb2xlIjoiYWRtaW4iLCJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTc0NTQ4NzM5NiwiZXhwIjoxNzQ1NDkwOTk2fQ.uraWmUwSBUfthG1huQClq8oL7HPBY3fyA3Cwo9iulu0
+
+###
+
+POST http://localhost:5500/api/users 
+content-type: application/json
+
+{
+    "name": "Moses",
+    "email": "moses@god.il",
+    "password": "my_brother_is_aharon"
+}
+
+###
+
+POST http://localhost:5500/api/users 
+content-type: application/json
+
+{
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "password": "admin",
+    "role":"admin"
+}
+
+###
+
+POST http://localhost:5500/api/users/login
+content-type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "admin"
+}
