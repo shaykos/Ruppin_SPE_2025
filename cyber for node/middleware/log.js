@@ -6,8 +6,7 @@ import { __dirname } from '../global.js';
 export async function writeLogEntry(req, res, next) {
 
   let clientIP = req.ip || req.connetion.remoteAddress;
-
-  let logFormat = `${clientIP} - ${new Date().toISOString()} - ${req.method} - ${req.host}${req.url} - ${res.statusCode}\n`;
+  let logFormat = `${clientIP} - ${new Date().toISOString()} - ${req.method} - ${req.host}${req.baseUrl} - ${res.statusCode}\n`;
   let logDir = path.join(__dirname, 'logs');
   let logFile = path.join(logDir, `access_${new Date().toISOString().split('T')[0]}.log`);
 
@@ -26,13 +25,14 @@ export async function writeLogEntry(req, res, next) {
     console.log('Error!', error);
   }
 
-  next();
+  if (next)
+    next();
 }
 
 export async function writeLogDB(error, data) {
 
   let func = data.func;
-  delete data.func; 
+  delete data.func;
 
   let logFormat = `${new Date().toISOString()} - ${func} - ${error} - data: ${JSON.stringify(data)}\n`;
   let logDir = path.join(__dirname, 'logs');
